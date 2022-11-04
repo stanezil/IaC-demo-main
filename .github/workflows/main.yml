@@ -13,7 +13,7 @@ jobs:
       
       - name: Download Trivy custom secrets scanning 
         run: |
-          curl https://raw.githubusercontent.com/stanezil/trivy-pii-regex/main/trivy-secret.yaml
+          curl https://raw.githubusercontent.com/stanezil/trivy-pii-regex/main/trivy-secret.yaml -o trivy-secret.yaml
 
       - name: Run Trivy vulnerability scanner in IaC mode
         uses: aquasecurity/trivy-action@master
