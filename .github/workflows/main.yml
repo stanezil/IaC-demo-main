@@ -25,7 +25,7 @@ jobs:
           format: 'sarif'
           output: 'trivy-results.sarif'
           exit-code: '1'
-          secret-config: "$GITHUB_WORKSPACE/trivy-secret.yaml"
+          secret-config: '/github/workspace/trivy-secret.yaml'
           # Customizing which severities are scanned for is done by adding the following flag: severity: 'UNKNOWN','LOW','MEDIUM','HIGH','CRITICAL'
         env:
           AQUA_KEY: ${{ secrets.AQUA_KEY }}
