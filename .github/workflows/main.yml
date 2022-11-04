@@ -14,7 +14,6 @@ jobs:
       - name: Download Trivy custom secrets scanning 
         run: |
           curl https://raw.githubusercontent.com/stanezil/trivy-pii-regex/main/trivy-secret.yaml -o trivy-secret.yaml
-          pwd 
           echo "$GITHUB_WORKSPACE"
 
       - name: Run Trivy vulnerability scanner in IaC mode
@@ -26,7 +25,7 @@ jobs:
           format: 'sarif'
           output: 'trivy-results.sarif'
           exit-code: '1'
-          secret-config: '$GITHUB_WORKSPACE/trivy-secret.yaml'
+          secret-config: "$GITHUB_WORKSPACE/trivy-secret.yaml"
           # Customizing which severities are scanned for is done by adding the following flag: severity: 'UNKNOWN','LOW','MEDIUM','HIGH','CRITICAL'
         env:
           AQUA_KEY: ${{ secrets.AQUA_KEY }}
