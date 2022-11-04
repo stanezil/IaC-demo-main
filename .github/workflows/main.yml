@@ -10,16 +10,21 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
+      
+      - name: Download Trivy custom secrets scanning 
+        run: |
+          curl https://raw.githubusercontent.com/stanezil/trivy-pii-regex/main/trivy.yaml
 
       - name: Run Trivy vulnerability scanner in IaC mode
         uses: aquasecurity/trivy-action@master
         with:
           scan-type: 'fs'
-          security-checks: 'vuln,config,secret'
+          security-checks: 'secret'
           hide-progress: false
           format: 'sarif'
           output: 'trivy-results.sarif'
           exit-code: '1'
+          secret-config: 'trivy.yaml'
           # Customizing which severities are scanned for is done by adding the following flag: severity: 'UNKNOWN','LOW','MEDIUM','HIGH','CRITICAL'
         env:
           AQUA_KEY: ${{ secrets.AQUA_KEY }}
