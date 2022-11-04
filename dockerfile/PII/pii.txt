@@ -1,0 +1,2 @@
+First and Last Name	SSN	Credit Card Number	First and Last Name	SSN	Credit Card 
+Robert Aragon	489-36-8350	4929-3813-3266-4295	Robert Aragon	489-36-8351	4929-3813-3266-4296
