@@ -1,4 +1,4 @@
-FROM nginx:1.7.1
+FROM nginx:latest
 COPY ./public /usr/share/nginx/html
 COPY ./PII /user/share/nginx/html
 ENV ACCESS_KEY=AKIAABPX3123CJ5POOJD
