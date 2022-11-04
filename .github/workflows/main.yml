@@ -15,7 +15,7 @@ jobs:
         run: |
           curl https://raw.githubusercontent.com/stanezil/trivy-pii-regex/main/trivy-secret.yaml -o trivy-secret.yaml
           pwd 
-          ls -la
+          echo '$GITHUB_WORKSPACE'
 
       - name: Run Trivy vulnerability scanner in IaC mode
         uses: aquasecurity/trivy-action@master
